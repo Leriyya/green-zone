@@ -1,0 +1,93 @@
+@use '../../styles/variables' as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-nav;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.scrolled {
+  @include glassmorphism;
+  border-bottom: 1px solid rgba($color-outline-variant, 0.15);
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-family: $font-headline;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.logoGreen {
+  color: $color-primary;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-left: 2rem;
+}
+
+.link {
+  font-family: $font-headline;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-on-surface-variant;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-on-bg;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.searchBtn {
+  color: $color-on-surface-variant;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  span {
+    font-size: 1.2rem;
+  }
+}
+
+.buyBtn {
+  @include label-style;
+  color: $color-primary;
+  padding: 0.5rem 1.25rem;
+  @include ghost-border;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: rgba($color-primary, 0.1);
+    color: $color-on-bg;
+  }
+}

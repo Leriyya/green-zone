@@ -1,0 +1,278 @@
+openapi: 3.1.0
+info:
+  title: GreenZonePC API
+  description: REST API for the GreenZonePC store — consumed by the customer-facing frontend.
+  version: 1.0.0
+
+servers:
+  - url: /api
+    description: Same-origin (via nginx reverse proxy)
+
+paths:
+  /products:
+    get:
+      summary: List active products
+      operationId: listProducts
+      parameters:
+        - name: category
+          in: query
+          description: Filter by product category
+          required: false
+          schema:
+            $ref: '#/components/schemas/ProductCategory'
+        - name: search
+          in: query
+          description: Full-text search on product name / description
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number (1-based, default 1). Page size is 20.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+      responses:
+        '200':
+          description: Paginated list of active products
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [products, page]
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  page:
+                    type: integer
+                    example: 1
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /products/{id}:
+    get:
+      summary: Get a single product
+      operationId: getProduct
+      parameters:
+        - $ref: '#/components/parameters/ID'
+      responses:
+        '200':
+          description: Product object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /builds:
+    get:
+      summary: List active PC builds
+      operationId: listBuilds
+      responses:
+        '200':
+          description: List of active PC builds
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [builds]
+                properties:
+                  builds:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PCBuild'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /builds/{id}:
+    get:
+      summary: Get a single PC build
+      operationId: getBuild
+      parameters:
+        - $ref: '#/components/parameters/ID'
+      responses:
+        '200':
+          description: PC build object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PCBuild'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+components:
+  parameters:
+    ID:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: UUID of the resource
+
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: product not found
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: failed to list products
+
+  schemas:
+    ProductCategory:
+      type: string
+      enum:
+        - component
+        - peripheral
+        - accessory
+
+    Product:
+      type: object
+      required:
+        - id
+        - name
+        - category
+        - price_cents
+        - stock
+        - low_stock_threshold
+        - images
+        - active
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 018f2c3d-1a2b-7000-8c9d-0e1f2a3b4c5d
+        name:
+          type: string
+          example: NVIDIA RTX 4070
+        description:
+          type: string
+          example: High-performance GPU for gaming and content creation.
+        category:
+          $ref: '#/components/schemas/ProductCategory'
+        price_cents:
+          type: integer
+          description: Price in cents (e.g. 59999 = $599.99)
+          example: 59999
+        stock:
+          type: integer
+          example: 12
+        low_stock_threshold:
+          type: integer
+          description: Stock level at or below which the product is considered low-stock
+          example: 3
+        specs:
+          description: Arbitrary key/value spec data (structure varies by product)
+          example:
+            vram: "12GB"
+            tdp: "200W"
+        images:
+          type: array
+          items:
+            type: string
+            format: uri-reference
+          example:
+            - /images/abc123.jpg
+        active:
+          type: boolean
+          example: true
+
+    BuildComponents:
+      type: object
+      properties:
+        cpu:
+          type: string
+          example: AMD Ryzen 7 7700X
+        gpu:
+          type: string
+          example: NVIDIA RTX 4070
+        ram:
+          type: string
+          example: 32GB DDR5-5600
+        ssd:
+          type: string
+          example: 1TB Samsung 990 Pro
+        motherboard:
+          type: string
+          example: ASUS ROG Strix B650-A
+        power_supply:
+          type: string
+          example: Corsair RM850x 850W
+
+    PCBuild:
+      type: object
+      required:
+        - id
+        - name
+        - price_cents
+        - stock
+        - images
+        - components
+        - active
+        - created_at
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 018f2c3d-1a2b-7000-8c9d-0e1f2a3b4c5d
+        name:
+          type: string
+          example: The Gamer Pro
+        description:
+          type: string
+          example: A high-end gaming build ready to ship.
+        price_cents:
+          type: integer
+          description: Price in cents (e.g. 149999 = $1499.99)
+          example: 149999
+        stock:
+          type: integer
+          example: 5
+        images:
+          type: array
+          items:
+            type: string
+            format: uri-reference
+          example:
+            - /images/build_front.jpg
+        components:
+          $ref: '#/components/schemas/BuildComponents'
+        active:
+          type: boolean
+          example: true
+        featured:
+          type: integer
+          nullable: true
+          description: Display order for featured builds (null if not featured)
+          example: 1
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-01-15T10:30:00Z"
+
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+          example: product not found
