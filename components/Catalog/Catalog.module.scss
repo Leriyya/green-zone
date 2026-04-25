@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+
+.catalog {
+  padding: 5rem 0;
+  background: $color-bg;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eyebrow {
+  @include label-style;
+  color: $color-primary;
+  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+}
+
+.title {
+  font-family: $font-headline;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: $color-on-bg;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 1.5px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.smallGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}

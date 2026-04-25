@@ -1,0 +1,201 @@
+@use '../../styles/variables' as *;
+
+.contact {
+  padding: 5rem 0;
+  background: $color-surface-low;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.eyebrow {
+  @include label-style;
+  color: $color-primary;
+  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-family: $font-headline;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+}
+
+.accent {
+  color: $color-primary;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fieldWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  @include label-style;
+  font-size: 0.65rem;
+  color: $color-on-surface-variant;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba($color-outline-variant, 0.4);
+  color: $color-on-bg;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  padding: 0.6rem 0;
+  outline: none;
+  resize: none;
+
+  &:focus ~ .underline {
+    width: 100%;
+  }
+}
+
+.textarea {
+  min-height: 5rem;
+}
+
+.underline {
+  display: block;
+  height: 2px;
+  width: 0;
+  background: $color-primary;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba($color-primary, 0.5);
+  margin-top: -1px;
+}
+
+.submitBtn {
+  @include primary-gradient;
+  @include label-style;
+  color: $color-on-primary;
+  padding: 1.1rem 2.5rem;
+  align-self: flex-start;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+// Info side
+.infoSide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: $color-surface;
+  transition: background 0.2s;
+
+  &:hover {
+    background: $color-surface-high;
+  }
+}
+
+.infoIcon {
+  color: $color-primary;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.infoLabel {
+  @include label-style;
+  font-size: 0.6rem;
+  color: $color-on-surface-variant;
+  margin-bottom: 0.35rem;
+}
+
+.infoValue {
+  font-family: $font-body;
+  font-size: 0.9rem;
+  color: $color-on-bg;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.mapWrap {
+  flex: 1;
+  min-height: 200px;
+  background: $color-surface;
+  position: relative;
+  overflow: hidden;
+  filter: grayscale(0.8);
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+
+.mapPlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: $color-surface-high;
+}
+
+.mapPin {
+  font-size: 2.5rem;
+  color: $color-primary;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.mapLabel {
+  @include label-style;
+  font-size: 0.65rem;
+  color: $color-on-surface-variant;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}

@@ -1,0 +1,164 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 5rem;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba($color-primary, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 30% 80%, rgba($color-secondary, 0.03) 0%, transparent 50%),
+    $color-bg;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.eyebrow {
+  @include label-style;
+  color: $color-primary;
+  letter-spacing: 0.3em;
+}
+
+.title {
+  font-family: $font-headline;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: $color-on-bg;
+}
+
+.titleAccent {
+  color: $color-primary;
+  -webkit-text-stroke: 0;
+}
+
+.description {
+  font-family: $font-body;
+  font-size: 1rem;
+  color: $color-on-surface-variant;
+  max-width: 28rem;
+  line-height: 1.7;
+}
+
+.ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.ctaPrimary {
+  @include primary-gradient;
+  @include label-style;
+  color: $color-on-primary;
+  padding: 1.1rem 2.5rem;
+  display: inline-block;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+.ctaSecondary {
+  @include label-style;
+  color: $color-on-bg;
+  padding: 1.1rem 2.5rem;
+  @include ghost-border;
+  display: inline-block;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba($color-on-bg, 0.05);
+  }
+}
+
+.mascotWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    order: -1;
+    max-height: 40vh;
+  }
+}
+
+.mascotGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 70%, rgba($color-primary, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mascot {
+  position: relative;
+  z-index: 1;
+  max-height: 80vh;
+  width: auto;
+  filter: drop-shadow(0 0 50px rgba($color-primary, 0.2));
+  object-fit: contain;
+}
+
+.statusIndicator {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: $color-primary;
+  display: block;
+  box-shadow: 0 0 8px $color-primary;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusText {
+  @include label-style;
+  color: $color-primary;
+  font-size: 0.65rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px $color-primary; }
+  50% { opacity: 0.4; box-shadow: 0 0 4px $color-primary; }
+}

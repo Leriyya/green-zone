@@ -1,0 +1,406 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GREENZONE PC | ULTIMATE POWER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#106f00",
+                    "surface-container": "#1a1919",
+                    "error": "#ff7351",
+                    "primary-fixed-dim": "#2be800",
+                    "secondary-dim": "#8455ef",
+                    "surface-container-low": "#131313",
+                    "on-secondary": "#280067",
+                    "primary": "#8eff71",
+                    "error-dim": "#d53d18",
+                    "on-background": "#ffffff",
+                    "on-tertiary-fixed-variant": "#003d5a",
+                    "background": "#0e0e0e",
+                    "on-surface-variant": "#adaaaa",
+                    "on-tertiary-fixed": "#001a29",
+                    "on-error-container": "#ffd2c8",
+                    "on-primary": "#0d6100",
+                    "secondary-fixed": "#dac9ff",
+                    "tertiary-fixed": "#40bbff",
+                    "on-primary-fixed": "#064200",
+                    "surface-container-highest": "#262626",
+                    "secondary-fixed-dim": "#ceb9ff",
+                    "on-primary-container": "#0b5800",
+                    "primary-fixed": "#2ff801",
+                    "primary-container": "#2ff801",
+                    "outline-variant": "#494847",
+                    "tertiary-fixed-dim": "#25adf1",
+                    "inverse-surface": "#fcf8f8",
+                    "primary-dim": "#2be800",
+                    "on-tertiary-container": "#003047",
+                    "on-error": "#450900",
+                    "outline": "#777575",
+                    "on-surface": "#ffffff",
+                    "on-primary-fixed-variant": "#0d6200",
+                    "on-tertiary": "#003b56",
+                    "surface-tint": "#8eff71",
+                    "surface-container-lowest": "#000000",
+                    "on-secondary-container": "#d9c8ff",
+                    "surface-container-high": "#201f1f",
+                    "tertiary": "#61c2ff",
+                    "on-secondary-fixed-variant": "#5f28c8",
+                    "surface-variant": "#262626",
+                    "surface-bright": "#2c2c2c",
+                    "secondary": "#ac8aff",
+                    "tertiary-container": "#34b5fa",
+                    "error-container": "#b92902",
+                    "inverse-on-surface": "#565554",
+                    "tertiary-dim": "#17a8ec",
+                    "surface": "#0e0e0e",
+                    "surface-dim": "#0e0e0e",
+                    "on-secondary-fixed": "#40009b",
+                    "secondary-container": "#5516be"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+        .font-space { font-family: 'Space Grotesk', sans-serif; }
+        .glass-nav { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(20px); }
+        .neon-glow { filter: drop-shadow(0 0 10px #8eff71); }
+        .primary-gradient { background: linear-gradient(135deg, #8eff71 0%, #2ff801 100%); }
+        .ghost-border { border: 1px solid rgba(73, 72, 71, 0.2); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-xl transition-all duration-300">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black italic tracking-tighter text-[#8eff71]" style="">GREENZONE PC</span>
+</div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-label text-neutral-400 hover:text-[#8eff71] transition-colors uppercase tracking-widest text-xs" href="#services" style="">Services</a>
+<a class="font-label text-[#8eff71] border-b-2 border-[#8eff71] pb-1 uppercase tracking-widest text-xs" href="#catalog" style="">Catalog</a>
+<a class="font-label text-neutral-400 hover:text-[#8eff71] transition-colors uppercase tracking-widest text-xs" href="#contacts" style="">Contacts</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface hover:text-primary transition-all" style="">search</button>
+<button class="bg-[#8eff71]/10 text-[#8eff71] px-6 py-2 font-bold tracking-tighter hover:bg-[#8eff71] hover:text-on-primary transition-all duration-300" style="">BUY</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A stylized futuristic mascot character for GREENZONE PC, featuring glowing green armor and cybernetic enhancements, standing in a high-tech dark workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArl-fM_Wd-H1M2Z5e_h9A1X9p0J0S3T7vU2W1L8Z9A0B1C2D3E4F5G6H7I8J9K0L1M2N3O4P5Q6R7S8T9U0V1W2X3Y4Z" style="">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="container mx-auto px-8 relative z-10">
+<div class=""><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<span class="w-12 h-[2px] bg-primary"></span>
+<span class="font-label text-primary uppercase tracking-[0.3em] text-sm" style="">Hardware Authority</span>
+</div>
+<h1 class="font-headline font-black text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.85] mb-8 uppercase italic" style="">
+      GREENZoNE <br> <span class="text-primary" style="">ULTIMATE</span> <br> POWER
+    </h1>
+<p class="font-body text-on-surface-variant text-xl max-w-xl mb-10 leading-relaxed" style="">
+      Engineered for total dominance by GREENZONE PC. Experience raw performance with our signature custom liquid-cooled rigs. No compromises, just pure kinetic energy.
+    </p>
+<div class="flex flex-wrap gap-4">
+<button class="primary-gradient text-on-primary px-10 py-5 font-black text-lg tracking-tighter hover:scale-105 transition-transform" style="">
+        EXPLORE CATALOG
+      </button>
+<button class="ghost-border bg-white/5 backdrop-blur-md text-on-surface px-10 py-5 font-black text-lg tracking-tighter hover:bg-white/10 transition-all" style="">
+        VIEW BUILDS
+      </button>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10"></div>
+<img alt="GREENZONE PC Cybernetic Mascot" class="w-full h-auto object-contain drop-shadow-[0_0_50px_rgba(57,255,20,0.2)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdpc-HFELwpWWpmLnC2ia472eE-mzBXT_8b3dlFr2SsofvXrNn_fiP22qXLeeofiVKhpjnusDMZccJH4bhCrVf6vRlyII02cDqEosTk39WrA-kJMXrrEh5m4rrEZ7pZ6kNxupPq2nq0REKzbfYVaoJ2AdqgeeLbQS-0ePgmA1OVINqeDVlxxMtXcpf7sD4DXPu4-Ve_ndRLizucIdDb_e1PC8zu7ILd6BK1kN5bHUrQJzKRa-Bd83bh_AsDJAS7J287SI-Dfo_OA" style="">
+</div>
+</div></div>
+</div>
+<div class="absolute bottom-10 right-8 hidden lg:block">
+<div class="flex flex-col items-end gap-2 text-right">
+<span class="font-label text-primary uppercase tracking-widest text-[10px]" style="">Current Status</span>
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-4xl" style="">ONLINE</span>
+<div class="w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_15px_#8eff71]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-24 bg-surface" id="services">
+<div class="container mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-px bg-outline-variant/20 ghost-border">
+<!-- Trade-in -->
+<div class="p-10 bg-surface-container-low hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl" style="">swap_horiz</span>
+</div>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" style="">currency_exchange</span>
+<h3 class="font-headline font-bold text-xl mb-4" style="">Trade-in</h3>
+<p class="font-body text-on-surface-variant text-sm" style="">Upgrade your aging rig for the latest hardware with our aggressive valuation.</p>
+</div>
+<!-- Sales -->
+<div class="p-10 bg-surface-container-low hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl" style="">shopping_cart</span>
+</div>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" style="">local_mall</span>
+<h3 class="font-headline font-bold text-xl mb-4" style="">Sales</h3>
+<p class="font-body text-on-surface-variant text-sm" style="">Premium components from authorized distributors with global warranties.</p>
+</div>
+<!-- Buyback -->
+<div class="p-10 bg-surface-container-low hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl" style="">payments</span>
+</div>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" style="">monetization_on</span>
+<h3 class="font-headline font-bold text-xl mb-4" style="">Buyback</h3>
+<p class="font-body text-on-surface-variant text-sm" style="">Instant liquidity for your pre-owned enthusiast-grade hardware.</p>
+</div>
+<!-- Installments -->
+<div class="p-10 bg-surface-container-low hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl" style="">calendar_month</span>
+</div>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" style="">credit_card</span>
+<h3 class="font-headline font-bold text-xl mb-4" style="">Financing</h3>
+<p class="font-body text-on-surface-variant text-sm" style="">Get your dream PC now with 0% interest flexible payment plans.</p>
+</div>
+<!-- PC Service -->
+<div class="p-10 bg-surface-container-low hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl" style="">build</span>
+</div>
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" style="">settings_suggest</span>
+<h3 class="font-headline font-bold text-xl mb-4" style="">PC Service</h3>
+<p class="font-body text-on-surface-variant text-sm" style="">Professional cleaning, repasting, and performance optimization.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Catalog Section -->
+<section class="py-24 bg-surface-container-lowest" id="catalog">
+<div class="container mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="font-headline font-black text-6xl tracking-tighter uppercase italic" style="">READY <span class="text-primary" style="">BUILDS</span></h2>
+<p class="font-label text-on-surface-variant mt-2 uppercase tracking-widest" style="">Performance-Verified Configurations</p>
+</div>
+<div class="w-full md:w-96 bg-surface-container p-6 ghost-border">
+<div class="flex justify-between mb-4">
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant" style="">Price Range</span>
+<span class="font-label text-xs text-primary" style="">$1,200 — $12,500</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary" max="12500" min="1200" type="range">
+</div>
+</div>
+<!-- Featured Builds (Asymmetric) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24">
+<!-- Large Card 1 -->
+<div class="lg:col-span-7 bg-surface-container-low relative group overflow-hidden border-l-4 border-primary">
+<div class="flex flex-col md:flex-row">
+<div class="flex-1 p-12">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-1 bg-primary/20 text-primary font-label text-[10px] font-bold" style="">LIVE FPS: 245</span>
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant font-label text-[10px] font-bold uppercase" style="">4K ULTRA</span>
+</div>
+<h3 class="font-headline font-black text-4xl mb-6 tracking-tight" style="">TITAN X OVERLOAD</h3>
+<div class="space-y-4 mb-10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-sm" style="">memory</span>
+<span class="font-label text-xs uppercase tracking-widest" style="">RTX 4090 24GB VRAM</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-sm" style="">processing_cluster</span>
+<span class="font-label text-xs uppercase tracking-widest" style="">i9-14900KS UNLOCKED</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-sm" style="">speed</span>
+<span class="font-label text-xs uppercase tracking-widest" style="">64GB DDR5 8000MHz</span>
+</div>
+</div>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="text-4xl font-headline font-black" style="">$6,499</span>
+<span class="text-on-surface-variant line-through text-sm" style="">$6,999</span>
+</div>
+<button class="primary-gradient text-on-primary w-full py-4 font-black tracking-widest uppercase hover:scale-[1.02] transition-transform" style="">BUY SYSTEM</button>
+</div>
+<div class="w-full md:w-1/2 relative bg-surface-container-highest flex items-center justify-center p-8">
+<img class="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(142,255,113,0.3)] transition-transform duration-700 group-hover:scale-110" data-alt="Close up of a sleek black PC case with transparent panel showing neon green glowing tubes and premium hardware components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs_LpP91eAvlb1R8elgVJO7jNPE4OgMYfAXtqYpKfPUzdplD0g4D4xmIy-zll41sVU6y1km8IB3ILoQky_q24-k2eCcuflzPjRU-lehFd1rKesHyxXZ08-5CC8OZqBdffkdqOTHT6pWcojUkD7kJJBMsYXeCef-GauY0tHs0MtXNoW2pa0liDQmlSPX1agpWK5OX233V3og67JJ-eoOFeWMHkiBKUKzeXXMih9nlMY_9Nz45zqsoSQB8WjNTNQV80_qkoy8AQYoA" style="">
+</div>
+</div>
+</div>
+<!-- Large Card 2 -->
+<div class="lg:col-span-5 bg-surface-container-low relative group overflow-hidden border-l-4 border-primary">
+<div class="p-12">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-1 bg-primary/20 text-primary font-label text-[10px] font-bold" style="">STREAMER READY</span>
+</div>
+<h3 class="font-headline font-black text-4xl mb-6 tracking-tight" style="">NEBULIGHT S-1</h3>
+<div class="space-y-4 mb-10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-sm" style="">memory</span>
+<span class="font-label text-xs uppercase tracking-widest" style="">RTX 4080 SUPER</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-sm" style="">processing_cluster</span>
+<span class="font-label text-xs uppercase tracking-widest" style="">RYZEN 9 7950X3D</span>
+</div>
+</div>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="text-4xl font-headline font-black" style="">$4,299</span>
+</div>
+<button class="primary-gradient text-on-primary w-full py-4 font-black tracking-widest uppercase hover:scale-[1.02] transition-transform" style="">BUY SYSTEM</button>
+</div>
+<div class="bg-surface-container-highest h-64 flex items-center justify-center p-8 overflow-hidden">
+<img class="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(142,255,113,0.3)] transition-transform duration-700 group-hover:scale-110" data-alt="Futuristic compact PC build with electric green and white interior lighting, high-end GPU visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMJKI_r9Gs375Mt8CaOA8ap782KEFRp7ri4cIYsY70krrOwEOaT12nCrRHOwJ_xNblx8xFM_EkwLnW-E6AnlSaeaQHibcc0NWlWR8ijgKqnwip39reSHplResXIp56cPGGN94Sy1Wy5oH7nnk_upM-SWgsQK8eHS6opVig39bNLu4kD0MpzXhSVWYCN9X5fPzOhMnFmYPD_KCn3VHdiaergt0ZFRLlIvBKRKfR5EmhbampRduigZJ31iFCzPN5MNKfyJ6XBAKBtA" style="">
+</div>
+</div>
+</div>
+<!-- Smaller Builds Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Build 1 -->
+<div class="bg-surface-container-low p-8 group hover:bg-surface-container transition-colors relative border-t-2 border-transparent hover:border-primary">
+<img class="w-full h-48 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="Mid-tower gaming PC with subtle green lighting and organized cable management" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8-Vb1CpizQuStxji2bhWX8eBHogUT8F9gGXiGys9AJ79pBpqkeof6jl8z5odZPaRTbKVBH3nMLq1TPDa8n_gWANlnY9TnfZGnGaRibAPSYR_eN2CFrVOfyXxScF6UrJItoZI8rLNJ8HYliGMPEAv6SwmqzYPLkFytTXkB6jxQR8hpSbvcvw3biaJ1FskXT3j4kBwVUr--mbEpZE0bPVSOaf4Nh_IyRt2Eh0NH8kzaTcq-722NQmxHfFURqdfkV-aaPMbad0iYuw" style="">
+<h4 class="font-headline font-bold text-xl mb-2" style="">CORE FLOW 01</h4>
+<p class="font-label text-[10px] text-on-surface-variant mb-6 uppercase tracking-widest" style="">RTX 4060 Ti | i5-14600K</p>
+<div class="flex justify-between items-center">
+<span class="text-2xl font-black" style="">$1,499</span>
+<button class="material-symbols-outlined text-primary" style="">add_shopping_cart</button>
+</div>
+</div>
+<!-- Build 2 -->
+<div class="bg-surface-container-low p-8 group hover:bg-surface-container transition-colors relative border-t-2 border-transparent hover:border-primary">
+<img class="w-full h-48 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="Stealth black gaming PC with dark tinted glass and minimal industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOisJKrBMvrF8aCnrzqDLYkdqpD9_bTpTxy-FTMbAiTRgPXzdiZnb9iHdPf2SUAU3kptl_sw2wGMhYao8-wS_w9AXrDCH3deSvuDpIw862hhyFkOtfG1NxfaB4yTFE4QmJ6fRhR97izKkSGC9-GfPZre4X8LXF9c_ooMZz5wx5koLaXNBRpKnJgyP13wAQsLbIzcSMgZyRMZDvifpwz7IfsJdnWiv_O22DtYoR1SMhtznUZxHVw-GvxvwZZDfpYiU7XTZLPt2Htg" style="">
+<h4 class="font-headline font-bold text-xl mb-2" style="">CORE FLOW 02</h4>
+<p class="font-label text-[10px] text-on-surface-variant mb-6 uppercase tracking-widest" style="">RTX 4070 | R7 7700X</p>
+<div class="flex justify-between items-center">
+<span class="text-2xl font-black" style="">$1,899</span>
+<button class="material-symbols-outlined text-primary" style="">add_shopping_cart</button>
+</div>
+</div>
+<!-- Build 3 -->
+<div class="bg-surface-container-low p-8 group hover:bg-surface-container transition-colors relative border-t-2 border-transparent hover:border-primary">
+<img class="w-full h-48 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="White themed gaming PC with vibrant RGB interior and sleek minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc4NT7L8bYzJzXvGmCsMbP3LgX_TVFz8ytRyXbhpZVP7RLhSyayA6QtahciHMyLomSzz67Eyy0UAwsmsORApCL0BMynPfsEA4wvIn3qW66tRMLJT9gfgzC_QEAx-YzVHqxqzyY5sTdKybhW-PJ7DSU_TmaSDRHZWXajibDrAj0r170RRmC6ma3UThZyAt2B5MN0BCcDmLWhk_0U-fm_07-4aqeQRYgbBHXePu_JexYKj7p87SAAorFkNyzvi4crcs8DQ_CeOh3KQ" style="">
+<h4 class="font-headline font-bold text-xl mb-2" style="">PRISM WHITE</h4>
+<p class="font-label text-[10px] text-on-surface-variant mb-6 uppercase tracking-widest" style="">RTX 4070 Ti | i7-14700K</p>
+<div class="flex justify-between items-center">
+<span class="text-2xl font-black" style="">$2,299</span>
+<button class="material-symbols-outlined text-primary" style="">add_shopping_cart</button>
+</div>
+</div>
+<!-- Build 4 -->
+<div class="bg-surface-container-low p-8 group hover:bg-surface-container transition-colors relative border-t-2 border-transparent hover:border-primary">
+<img class="w-full h-48 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="Custom vertical mount PC rig with exposed hardware and high-end thermal solution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmrmWzgrfFwmtzTDCAhSztGexZYJt_0deKOPAltIyuA2BANfo5f-l5vwT6sYSMvS81PKqFZgzVwPdO6-VQdGavEXoxhKv2y_aQSPRqK5i3EDgWZFpi6B5EzD28S0hggBffyl32-mFsyC6aTCJBYSgWKkj1MlRDKit6z5VNLRsojmtCjvv3FTRgR1rn9kwURKDj9KPSBiQr7a1n71PmgGAA7aBPzEnkc-SAzp1jsaw8N2NsDQcmhspihJaAEpHLoiFWTADyysnxow" style="">
+<h4 class="font-headline font-bold text-xl mb-2" style="">APEX ASCENT</h4>
+<p class="font-label text-[10px] text-on-surface-variant mb-6 uppercase tracking-widest" style="">RTX 4080 | R9 7900X</p>
+<div class="flex justify-between items-center">
+<span class="text-2xl font-black" style="">$3,199</span>
+<button class="material-symbols-outlined text-primary" style="">add_shopping_cart</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contacts Section -->
+<section class="py-24 bg-surface relative overflow-hidden" id="contacts">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<div class="w-full h-full bg-primary blur-[150px]"></div>
+</div>
+<div class="container mx-auto px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<!-- Contact Form -->
+<div>
+<h2 class="font-headline font-black text-5xl mb-4 tracking-tighter uppercase italic" style="">INITIATE <span class="text-primary" style="">CONTACT</span></h2>
+<p class="font-body text-on-surface-variant mb-12 max-w-md" style="">Connect with our systems engineers for a custom hardware consultation.</p>
+<form class="space-y-10">
+<div class="relative group">
+<input class="w-full bg-transparent border-b border-outline-variant py-4 font-label text-xs tracking-[0.2em] focus:outline-none focus:border-primary transition-all placeholder:text-neutral-700" placeholder="IDENTITY / NAME" type="text">
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-b border-outline-variant py-4 font-label text-xs tracking-[0.2em] focus:outline-none focus:border-primary transition-all placeholder:text-neutral-700" placeholder="COMM-LINK / PHONE" type="tel">
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-transparent border-b border-outline-variant py-4 font-label text-xs tracking-[0.2em] focus:outline-none focus:border-primary transition-all placeholder:text-neutral-700 resize-none" placeholder="TRANSMISSION / MESSAGE" rows="4"></textarea>
+<div class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<button class="primary-gradient text-on-primary px-12 py-5 font-black uppercase tracking-widest hover:shadow-[0_0_30px_#8eff71] transition-all" style="">
+                        SEND TRANSMISSION
+                    </button>
+</form>
+</div>
+<!-- Info & Map -->
+<div class="space-y-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<h4 class="font-label text-primary text-[10px] uppercase tracking-[0.3em] mb-4" style="">Command Center</h4>
+<p class="font-headline font-bold text-xl leading-relaxed" style="">
+                            404 KINETIC WAY<br>NEON DISTRICT<br>TECH CITY, TC 90210
+                        </p>
+</div>
+<div>
+<h4 class="font-label text-primary text-[10px] uppercase tracking-[0.3em] mb-4" style="">Uptime</h4>
+<p class="font-headline font-bold text-xl leading-relaxed" style="">
+                            MON - SAT: 10:00 - 22:00<br>SUN: 12:00 - 18:00
+                        </p>
+</div>
+</div>
+<div class="h-80 bg-surface-container-highest relative grayscale hover:grayscale-0 transition-all duration-700 border-l border-primary/30">
+<img class="w-full h-full object-cover opacity-50" data-alt="A stylized digital map of a futuristic urban grid with glowing green location pins and data overlays" data-location="Tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ZrSWq7LVp67xRdhlUWfRHNc3J-kIzgM4ZoU83t6TLO7mKi7_fHkSbRN7KRSb909_8iUd6MGFbo12DAsXA7O2Or8Zoc1RboijJYqJvc2m914oCizfKaXv-dmg2gIhfusGABdhWXvT651_p9s_0ZgoSdC5kv8Yz6AJhaZhToMQlLwEEkAjiOdoWINWTeB_Kna_oQJ0H-dGUqMqLhQPIv1QfjgQ7hb1-Fv2bFGOj7KBUD9c4YBq0JEdYZRSo15NzejXOltiowMeNQ" style="">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl animate-bounce" style="">location_on</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-neutral-950 w-full border-t border-neutral-800/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-12 w-full max-w-[1920px] mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="text-lg font-bold text-neutral-100 font-headline italic" style="">GREENZONE PC</span>
+</div>
+<div class="flex gap-8 mb-8 md:mb-0">
+<a class="font-manrope uppercase tracking-widest text-[10px] text-neutral-500 hover:text-primary transition-colors" href="#" style="">Privacy Policy</a>
+<a class="font-manrope uppercase tracking-widest text-[10px] text-neutral-500 hover:text-primary transition-colors" href="#" style="">Terms of Service</a>
+<a class="font-manrope uppercase tracking-widest text-[10px] text-neutral-500 hover:text-primary transition-colors" href="#" style="">Warranty</a>
+<a class="font-manrope uppercase tracking-widest text-[10px] text-neutral-500 hover:text-primary transition-colors" href="#" style="">Support</a>
+</div>
+<div class="font-manrope uppercase tracking-widest text-[10px] text-neutral-500" style="">
+            © 2024 GREENZONE PC SYSTEMS. ALL RIGHTS RESERVED.
+        </div>
+</div>
+<!-- Bottom Aesthetic Bar -->
+<div class="h-1 w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+</footer>
+</body></html>
