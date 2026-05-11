@@ -1,0 +1,182 @@
+@use '../../styles/variables' as *;
+
+.shipping {
+  padding: 5rem 0;
+  background: $color-bg;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eyebrow {
+  @include label-style;
+  color: $color-primary;
+  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+}
+
+.title {
+  font-family: $font-headline;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: $color-on-bg;
+}
+
+.accent {
+  color: $color-primary;
+}
+
+// Grid: featured card takes 2 columns, rest share the remaining space
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1.5px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: $color-surface-low;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-top: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: $color-surface-high;
+    border-top-color: $color-primary;
+  }
+}
+
+.cardFeatured {
+  background: $color-surface-low;
+  border-top: 2px solid $color-primary;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, $color-primary 0%, transparent 100%);
+  }
+
+  &:hover {
+    border-top-color: $color-primary;
+  }
+
+  .icon {
+    color: $color-primary;
+    opacity: 1;
+  }
+
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+
+  .cardDesc {
+    font-size: 0.9rem;
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.icon {
+  font-size: 1.75rem;
+  color: $color-on-surface-variant;
+  opacity: 0.5;
+  transition: opacity 0.2s, color 0.2s;
+
+  .card:hover & {
+    opacity: 1;
+    color: $color-primary;
+  }
+}
+
+.badge {
+  @include label-style;
+  font-size: 0.55rem;
+  color: $color-primary;
+  background: rgba($color-primary, 0.1);
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba($color-primary, 0.2);
+  white-space: nowrap;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: $font-headline;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-on-bg;
+}
+
+.cardDesc {
+  font-family: $font-body;
+  font-size: 0.82rem;
+  color: $color-on-surface-variant;
+  line-height: 1.65;
+}
+
+.detailList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba($color-outline-variant, 0.15);
+  margin-top: auto;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detailIcon {
+  font-size: 0.85rem;
+  color: $color-primary;
+  flex-shrink: 0;
+}
+
+.detailText {
+  font-family: $font-body;
+  font-size: 0.78rem;
+  color: $color-on-surface-variant;
+}

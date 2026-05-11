@@ -1,19 +1,5 @@
-import Nav from '@/components/Nav/Nav'
-import Hero from '@/components/Hero/Hero'
-import Services from '@/components/Services/Services'
-import Catalog from '@/components/Catalog/Catalog'
-import Contact from '@/components/Contact/Contact'
+import { redirect } from 'next/navigation'
 
-export default function Home() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Services />
-        <Catalog />
-        <Contact />
-      </main>
-    </>
-  )
+export default function RootPage() {
+  redirect('/en')
 }

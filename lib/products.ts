@@ -10,10 +10,14 @@ export type Product = {
   name: string
   subtitle: string
   price: number
+  oldPrice?: number
+  refurbished?: boolean
+  sold?: boolean
   image: string
   images: string[]
   specs: string[]
   detailSpecs?: DetailSpecs
+  additionalSpecs?: { label: string, value: string }[]
   type: 'featured' | 'small'
   fps?: number
   badge?: string
@@ -28,6 +32,9 @@ export const mockProducts: Product[] = [
     name: 'TITAN X OVERLORD',
     subtitle: 'Ultimate Gaming Beast',
     price: 5499,
+    oldPrice: 5999,
+    refurbished: false,
+    sold: false,
     image: '/images/build-titan.png',
     images: ['/images/build-titan.png', '/images/build-titan-2.png', '/images/build-titan-3.png'],
     specs: ['RTX 4090', 'i9-14900K', '64GB DDR5', '4TB NVMe', 'Be Quiet! 1000W', 'NZXT H9 Elite'],
@@ -42,6 +49,8 @@ export const mockProducts: Product[] = [
     name: 'NEON LIGHT S-1',
     subtitle: 'Streamer Edition',
     price: 4299,
+    refurbished: false,
+    sold: true,
     image: '/images/build-neon.png',
     images: ['/images/build-neon.png', '/images/build-neon-2.png', '/images/build-neon-3.png'],
     specs: ['RTX 4080S', 'i7-14700K', '32GB DDR5', '2TB NVMe', 'Corsair RM850x', 'Lian Li PC-O11D'],
@@ -56,6 +65,9 @@ export const mockProducts: Product[] = [
     name: 'GHOST PRO',
     subtitle: 'Silent Power',
     price: 2799,
+    oldPrice: 3199,
+    refurbished: true,
+    sold: false,
     image: '/images/build-ghost.png',
     images: ['/images/build-ghost.png', '/images/build-ghost-2.png', '/images/build-ghost-3.png'],
     specs: ['RTX 4070', 'i5-14600K', '32GB DDR5', '1TB NVMe', 'Seasonic 750W', 'Fractal Define 7'],
@@ -69,6 +81,8 @@ export const mockProducts: Product[] = [
     name: 'CYBER CORE',
     subtitle: 'Budget Champion',
     price: 1899,
+    refurbished: true,
+    sold: true,
     image: '/images/build-cyber.png',
     images: ['/images/build-cyber.png', '/images/build-cyber-2.png', '/images/build-cyber-3.png'],
     specs: ['RTX 4060Ti', 'i5-13600K', '16GB DDR5', '1TB NVMe', 'EVGA 650W', 'NZXT H5 Flow'],
@@ -82,6 +96,8 @@ export const mockProducts: Product[] = [
     name: 'VOID RUNNER',
     subtitle: 'Esports Ready',
     price: 2199,
+    refurbished: false,
+    sold: false,
     image: '/images/build-void.png',
     images: ['/images/build-void.png', '/images/build-void-2.png', '/images/build-void-3.png'],
     specs: ['RX 7800XT', 'R7-7700X', '32GB DDR5', '1TB NVMe', 'Corsair 750W', 'DeepCool CH510'],
@@ -95,6 +111,9 @@ export const mockProducts: Product[] = [
     name: 'PULSE X',
     subtitle: 'Mid-Range King',
     price: 3299,
+    oldPrice: 3699,
+    refurbished: true,
+    sold: false,
     image: '/images/build-pulse.png',
     images: ['/images/build-pulse.png', '/images/build-pulse-2.png', '/images/build-pulse-3.png'],
     specs: ['RTX 4070Ti', 'i7-13700K', '32GB DDR5', '2TB NVMe', 'be quiet! 850W', 'Phanteks P500A'],
