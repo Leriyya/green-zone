@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/valeriaekhno/Documents/projects/green-zone/app/layout\":[\"static/media/875ae681bfde4580-s.p.woff2\",\"static/media/cc978ac5ee68c2b6-s.p.woff2\",\"static/media/4c9affa5bc8f420e-s.p.woff2\",\"static/media/36966cca54120369-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
