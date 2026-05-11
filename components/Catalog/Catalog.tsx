@@ -1,18 +1,14 @@
 import { PCBuild, buildToProduct, API_BASE_URL } from "@/lib/builds";
-import ProductCardLarge from "./ProductCardLarge";
-import ProductCardSmall from "./ProductCardSmall";
-import CatalogProvider from "./CatalogProvider";
+import CatalogGrid from "./CatalogGrid";
 import styles from "./Catalog.module.scss";
 
 async function getBuilds(): Promise<PCBuild[]> {
   const res = await fetch(`${API_BASE_URL}/api/builds`, {
     cache: "no-store",
   });
-  console.log('res',res);
-  
+
   if (!res.ok) return [];
   const data = await res.json();
-  console.log("data", data);
 
   return data.builds ?? [];
 }
@@ -32,28 +28,13 @@ export default async function Catalog() {
     .filter((b) => !featuredIds.has(b.id))
     .map(buildToProduct);
 
+  const all = [...featured, ...small];
+
   return (
     <section id="catalog" className={styles.catalog}>
-      <CatalogProvider>
-        <div className={styles.inner}>
-          <div className={styles.header}>
-            <p className={styles.eyebrow}>OUR SELECTION</p>
-            <h2 className={styles.title}>READY BUILDS</h2>
-          </div>
-
-          <div className={styles.featuredGrid}>
-            {featured.map((p) => (
-              <ProductCardLarge key={p.id} product={p} />
-            ))}
-          </div>
-
-          <div className={styles.smallGrid}>
-            {small.map((p) => (
-              <ProductCardSmall key={p.id} product={p} />
-            ))}
-          </div>
-        </div>
-      </CatalogProvider>
+      <div className={styles.inner}>
+        <CatalogGrid featured={featured} small={small} all={all} />
+      </div>
     </section>
   );
 }

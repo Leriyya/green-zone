@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from '@/context/LanguageContext'
 import styles from './Contact.module.scss'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', message: '' })
+  const { t } = useLanguage()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -14,18 +16,29 @@ export default function Contact() {
     e.preventDefault()
   }
 
+  const fields = [
+    { name: 'name', label: t.contact.nameLabel, type: 'text' },
+    { name: 'phone', label: t.contact.phoneLabel, type: 'tel' },
+  ]
+
+  const infoCards = [
+    { icon: 'location_on', label: t.contact.address.label, value: t.contact.address.value },
+    { icon: 'phone', label: t.contact.phone.label, value: t.contact.phone.value },
+    { icon: 'schedule', label: t.contact.hours.label, value: t.contact.hours.value },
+  ]
+
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.inner}>
         <div className={styles.formSide}>
-          <p className={styles.eyebrow}>GET IN TOUCH</p>
-          <h2 className={styles.title}>INITIATE<br /><span className={styles.accent}>CONTACT</span></h2>
+          <p className={styles.eyebrow}>{t.contact.eyebrow}</p>
+          <h2 className={styles.title}>
+            {t.contact.title1}<br />
+            <span className={styles.accent}>{t.contact.title2}</span>
+          </h2>
 
           <form className={styles.form} onSubmit={handleSubmit}>
-            {[
-              { name: 'name', label: 'YOUR NAME', type: 'text' },
-              { name: 'phone', label: 'PHONE NUMBER', type: 'tel' },
-            ].map((field) => (
+            {fields.map((field) => (
               <div key={field.name} className={styles.fieldWrap}>
                 <label className={styles.label} htmlFor={field.name}>{field.label}</label>
                 <div className={styles.inputWrap}>
@@ -43,7 +56,7 @@ export default function Contact() {
             ))}
 
             <div className={styles.fieldWrap}>
-              <label className={styles.label} htmlFor="message">MESSAGE</label>
+              <label className={styles.label} htmlFor="message">{t.contact.messageLabel}</label>
               <div className={styles.inputWrap}>
                 <textarea
                   id="message"
@@ -58,18 +71,14 @@ export default function Contact() {
             </div>
 
             <button type="submit" className={styles.submitBtn}>
-              SEND MESSAGE
+              {t.contact.submitBtn}
             </button>
           </form>
         </div>
 
         <div className={styles.infoSide}>
           <div className={styles.infoCards}>
-            {[
-              { icon: 'location_on', label: 'ADDRESS', value: '123 Tech District,\nSilicon Valley, CA' },
-              { icon: 'phone', label: 'PHONE', value: '+1 (555) 000-1234' },
-              { icon: 'schedule', label: 'HOURS', value: 'Mon–Sat: 10:00–20:00\nSun: Closed' },
-            ].map((info) => (
+            {infoCards.map((info) => (
               <div key={info.label} className={styles.infoCard}>
                 <span className={`material-symbols-outlined ${styles.infoIcon}`}>{info.icon}</span>
                 <div>

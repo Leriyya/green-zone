@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, Manrope } from 'next/font/google'
+import { headers } from 'next/headers'
+import type { Lang } from '@/lib/i18n'
 import './globals.scss'
 
 const spaceGrotesk = Space_Grotesk({
@@ -10,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 const manrope = Manrope({
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic', 'latin-ext'],
   weight: ['200', '300', '400', '500', '600', '700', '800'],
   variable: '--font-body',
   display: 'swap',
@@ -21,9 +23,12 @@ export const metadata: Metadata = {
   description: 'Custom gaming PC builds engineered for dominance. Next-gen rigs built for those who refuse to compromise.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers()
+  const lang = (headersList.get('x-lang') as Lang) ?? 'en'
+
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
+    <html lang={lang} className={`${spaceGrotesk.variable} ${manrope.variable}`}>
       <head>
         <link
           rel="stylesheet"

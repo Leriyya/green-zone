@@ -75,6 +75,8 @@ paths:
     get:
       summary: List active PC builds
       operationId: listBuilds
+      parameters:
+        - $ref: '#/components/parameters/Lang'
       responses:
         '200':
           description: List of active PC builds
@@ -97,6 +99,7 @@ paths:
       operationId: getBuild
       parameters:
         - $ref: '#/components/parameters/ID'
+        - $ref: '#/components/parameters/Lang'
       responses:
         '200':
           description: PC build object
@@ -118,6 +121,15 @@ components:
       schema:
         type: string
       description: UUID of the resource
+    Lang:
+      name: lang
+      in: query
+      required: false
+      description: Language code for translated fields (name, description). Falls back to English.
+      schema:
+        type: string
+        enum: [en, de, ru]
+        default: en
 
   responses:
     NotFound:
@@ -196,27 +208,37 @@ components:
           type: boolean
           example: true
 
-    BuildComponents:
+    Component:
       type: object
       properties:
-        cpu:
+        field_name:
           type: string
+          description: Display label for this component slot
+          example: CPU
+        component_name:
+          type: string
+          description: The component model or name
           example: AMD Ryzen 7 7700X
+
+    BuildComponents:
+      type: object
+      description: >
+        Map of component slot keys to component objects. Well-known keys include:
+        cpu, gpu, motherboard, ram, ssd, nvme, hdd, power_supply, case,
+        cpu_cooler, liquid_cooler, case_fans, sound_card, network_card.
+        Custom keys are also allowed.
+      additionalProperties:
+        $ref: '#/components/schemas/Component'
+      example:
+        cpu:
+          field_name: CPU
+          component_name: AMD Ryzen 7 7700X
         gpu:
-          type: string
-          example: NVIDIA RTX 4070
+          field_name: GPU
+          component_name: NVIDIA RTX 4070
         ram:
-          type: string
-          example: 32GB DDR5-5600
-        ssd:
-          type: string
-          example: 1TB Samsung 990 Pro
-        motherboard:
-          type: string
-          example: ASUS ROG Strix B650-A
-        power_supply:
-          type: string
-          example: Corsair RM850x 850W
+          field_name: RAM
+          component_name: 32GB DDR5-5600
 
     PCBuild:
       type: object
@@ -228,6 +250,7 @@ components:
         - images
         - components
         - active
+        - refurbished
         - created_at
       properties:
         id:
@@ -242,11 +265,16 @@ components:
           example: A high-end gaming build ready to ship.
         price_cents:
           type: integer
-          description: Price in cents (e.g. 149999 = $1499.99)
+          description: Original price in cents (e.g. 149999 = €1499.99)
           example: 149999
+        new_price_cents:
+          type: integer
+          nullable: true
+          description: Sale/discounted price in cents. Present only when the build is on sale.
+          example: 129999
         stock:
           type: integer
-          example: 5
+          example: 1
         images:
           type: array
           items:
@@ -259,6 +287,10 @@ components:
         active:
           type: boolean
           example: true
+        refurbished:
+          type: boolean
+          description: Whether this build uses refurbished parts
+          example: false
         featured:
           type: integer
           nullable: true

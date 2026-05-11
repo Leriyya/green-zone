@@ -1,5 +1,120 @@
 @use '../../styles/variables' as *;
 
+// Sold state
+.soldCard {
+  cursor: default;
+  filter: grayscale(0.7);
+  opacity: 0.6;
+
+  &:hover {
+    background: $color-surface-low !important;
+    border-color: $color-outline-variant !important;
+
+    .largeImage,
+    .smallImage,
+    .listImage {
+      transform: none !important;
+    }
+  }
+}
+
+.soldOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include label-style;
+  font-size: 1.1rem;
+  color: $color-on-surface-variant;
+  background: rgba(#000, 0.45);
+  letter-spacing: 0.3em;
+}
+
+.soldBtn {
+  @include label-style;
+  font-size: 0.65rem;
+  color: $color-on-surface-variant;
+  border: 1px solid $color-outline-variant;
+  padding: 0 1rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25em;
+}
+
+.soldBtnSmall {
+  @include label-style;
+  font-size: 0.6rem;
+  color: $color-on-surface-variant;
+  border: 1px solid $color-outline-variant;
+  padding: 0 0.75rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25em;
+}
+
+// Condition badge
+.conditionChip {
+  @include label-style;
+  font-size: 0.6rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.conditionNew {
+  background: rgba($color-primary, 0.15);
+  color: $color-primary;
+}
+
+.conditionUsed {
+  background: rgba($color-secondary, 0.15);
+  color: $color-secondary;
+}
+
+// Spec key-value list (GPU / CPU / RAM / SSD)
+.specList {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.6rem;
+}
+
+.specListLabel {
+  font-family: $font-body;
+  font-size: 0.65rem;
+  color: $color-on-surface-variant;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.specListValue {
+  font-family: $font-body;
+  font-size: 0.65rem;
+  color: $color-on-bg;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: center;
+}
+
+// Old price
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.oldPrice {
+  font-family: $font-headline;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-on-surface-variant;
+  text-decoration: line-through;
+  line-height: 1;
+}
+
 // Large card
 .large {
   background: $color-surface-low;
@@ -126,6 +241,102 @@
   }
 }
 
+// List card
+.listCard {
+  background: $color-surface-low;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-left: 4px solid $color-primary;
+  transition: background 0.2s;
+  cursor: pointer;
+  height: 130px;
+
+  &:hover {
+    background: $color-surface-high;
+
+    .listImage {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.listImageWrap {
+  position: relative;
+  width: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: $color-surface;
+}
+
+.listImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.listInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.listMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.listName {
+  font-family: $font-headline;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-on-bg;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listSubtitle {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $color-on-surface-variant;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1;
+  align-items: center;
+}
+
+.listPriceRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.listPrice {
+  font-family: $font-headline;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: $color-on-bg;
+  white-space: nowrap;
+}
+
 // Small card
 .small {
   background: $color-surface-low;
@@ -147,6 +358,7 @@
 }
 
 .smallImageWrap {
+  position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 3;
   background: $color-surface;
